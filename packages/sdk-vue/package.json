@@ -1,0 +1,45 @@
+{
+  "name": "@flutterwavebnw/checkout-vue",
+  "version": "0.1.0",
+  "description": "Vue bindings for Flutterwave Checkout: a composable that drives one CheckoutSession over the browser (client_secret) client, a drop-in component that renders the whole checkout on your page, and a card field component that renders one framed instrument input inside a checkout you built. Works in Vue 3 and Nuxt.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flw-beam/checkout-js.git",
+    "directory": "packages/sdk-vue"
+  },
+  "bugs": "https://github.com/flw-beam/checkout-js/issues",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.test.json && node --test dist-test/test/*.test.js",
+    "clean": "rm -rf dist dist-test"
+  },
+  "peerDependencies": {
+    "vue": ">=3.3"
+  },
+  "dependencies": {
+    "@flutterwavebnw/checkout-runtime": "workspace:*",
+    "@flutterwavebnw/checkout-sdk": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/jsdom": "21.1.7",
+    "@types/node": "20.16.0",
+    "jsdom": "26.1.0",
+    "typescript": "^5.6.0",
+    "vue": "3.5.43"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

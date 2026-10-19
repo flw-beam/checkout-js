@@ -1,0 +1,44 @@
+{
+  "name": "@flutterwavebnw/checkout-sdk",
+  "version": "0.1.0",
+  "description": "TypeScript-first server SDK for Flutterwave Checkout. A thin, typed client over the headless collection API, with an Ed25519 provenance verifier for signed events. Types are generated from /contracts — there is no privileged back channel.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flw-beam/checkout-js.git",
+    "directory": "packages/sdk-js"
+  },
+  "bugs": "https://github.com/flw-beam/checkout-js/issues",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./browser": {
+      "types": "./dist/browser.d.ts",
+      "default": "./dist/browser.js"
+    },
+    "./webhooks": {
+      "types": "./dist/webhooks.d.ts",
+      "default": "./dist/webhooks.js"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.test.json && node --test dist-test/test/*.test.js",
+    "clean": "rm -rf dist dist-test"
+  },
+  "dependencies": {
+    "@flutterwavebnw/checkout-contracts": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "20.16.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@flutterwavebnw/checkout-runtime",
+  "version": "0.1.0",
+  "description": "Loader for the Flutterwave Checkout browser runtime: the drop-in (our checkout mounted in-context on the merchant's own page) and the inline card field (one framed input inside a checkout the merchant builds). No redirect, no card data on the merchant surface \u2014 both drive the same CheckoutSession over that session's client_secret. Fetches the runtime from the checkout origin; ships types, not payment code.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flw-beam/checkout-js.git",
+    "directory": "packages/runtime"
+  },
+  "bugs": "https://github.com/flw-beam/checkout-js/issues",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.test.json && node --test dist-test/test/*.test.js",
+    "clean": "rm -rf dist dist-test"
+  },
+  "devDependencies": {
+    "@types/jsdom": "21.1.7",
+    "@types/node": "20.16.0",
+    "jsdom": "26.1.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
